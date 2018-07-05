@@ -45,7 +45,7 @@ namespace LunarParser.JSON
                     throw new Exception($"JSON parsing exception, unexpected character");
                 }
 
-                index++;               
+                index++;
             }
         }
 
@@ -200,7 +200,7 @@ namespace LunarParser.JSON
                                     c = (char)unicode_val;
                                 }
 
-                                value_content.Append(c);                                
+                                value_content.Append(c);
                             }
                             else
                             if (c == 'n' && mode == InputMode.None)
@@ -265,7 +265,7 @@ namespace LunarParser.JSON
                                             value_content.Append(c);
                                         }
                                         else
-                                        if (char.IsNumber(c) || (mode == InputMode.Number && c =='.'))
+                                        if (char.IsNumber(c) || c == '+' || c == '-' || (mode == InputMode.Number && (c =='.' || c == 'E' || c == 'e')))
                                         {
                                             if (mode != InputMode.Number)
                                             {
